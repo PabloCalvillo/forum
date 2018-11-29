@@ -10,12 +10,13 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
-
+// Foros
 Route::get('/', 'ForumController@index');
 Route::get('/forums/{forum}', 'ForumController@show');
+Route::post('/forums', 'ForumController@store');
 
-Route::resource("/completo", "EjemploController2");
+// Posts
+Route::get('/posts/{post}', 'PostController@show');
+Route::post('/posts', 'PostController@store')->name('newpost');
 
 Auth::routes();
-
-Route::get('/home', 'HomeController@index')->name('home');

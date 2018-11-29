@@ -13,6 +13,7 @@ class DatabaseSeeder extends Seeder
     {
         factory(\forum\User::class, 50)->create();
         factory(\forum\Forum::class, 20)->create();
-        factory(\forum\Post::class, 100)->create();
+        factory(\forum\Post::class, 50)->create();
+        factory(\forum\Reply::class, 100)->create();
     }
 }

@@ -17,4 +17,14 @@ class Post extends Model
     public function owner(){
         return $this->belongsTo(User::class, 'user_id');
     }
+
+    public function replies(){ 
+        return $this->hasMany(Reply::class); 
+    }
+
+    protected static function boot() { parent::boot();
+        static::creating(function($post) { 
+            $post->user_id = auth()->id(); 
+        }); 
+    }
 }
