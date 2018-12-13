@@ -16,6 +16,9 @@
             </div>
             <div class="panel-body">
                 {{ $reply->reply }}
+                @if($post->attachment) 
+                <img src="{{ $reply->pathAttachment() }}" class="img-responsive img-rounded" /> 
+                @endif
             </div>
         </div>
         @empty

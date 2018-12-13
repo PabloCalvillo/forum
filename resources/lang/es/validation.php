@@ -174,6 +174,7 @@ return [
         'time'                  => 'hora',
         'subject'               => 'asunto',
         'message'               => 'mensaje',
-        'reply'                 => 'respuesta'
+        'reply'                 => 'respuesta',
+        'file'                  => 'El fichero'
     ],
 ];

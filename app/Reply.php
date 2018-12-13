@@ -9,7 +9,7 @@ class Reply extends Model
 {
     protected $table = 'replies';
     protected $fillable = [
-        'user_id', 'post_id', 'reply',
+        'user_id', 'post_id', 'reply', 'attachment',
     ];
     // Para poder acceder al Foro desde esta tabla crearemos un atributo extra
     protected $appends = ['forum'];
@@ -33,5 +33,9 @@ class Reply extends Model
     // y finalizar por "Attribute" (y lo de en medio CamelCase)
     public function getForumAttribute() {
         return $this->post->forum;
-    } 
+    }
+    
+    public function pathAttachment() {
+        return "/images/replies/" . $this->attachment;
+    }
 }
