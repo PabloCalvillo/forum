@@ -14,7 +14,7 @@ class ForumController extends Controller
 
     public function show(Forum $forum) {
         //dd($forum);
-        $posts = $forum->posts()->with(['owner'])->paginate(2);
+        $posts = $forum->posts()->with(['owner'])->orderBY('id', 'desc')->paginate(2);
         //dd($posts);
         return view('forums.detail', compact('forum', 'posts'));
     }

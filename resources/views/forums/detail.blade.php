@@ -9,13 +9,17 @@
         @forelse($posts as $post)
         <div class="panel panel-default">
             <div class="panel-heading panel-heading-post">
-                <a href="../posts/{{ $post->id }}"> {{ $post->title }} </a>
+                <a href="../posts/{{ $post->slug }}"> {{ $post->title }} </a>
                 <span class="pull-right">
                     {{ __("Owner") }}: {{ $post->owner->name }}
                 </span>
             </div>
             <div class="panel-body">
                 {{ $post->description }}
+                @if($post->attachment) 
+                {{-- <img src="../../storage/app/posts/{{ $post->attachment }}" class="img-responsive img-rounded" />  --}}
+                <img src="{{ $post->pathAttachment() }}" class="img-responsive img-rounded" /> 
+                @endif
             </div>
         </div>
         @empty
